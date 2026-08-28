@@ -1,0 +1,35 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Kungsbacka bibliotek",
+        "description": "Ange ditt lånekortsnummer och PIN-kod för att ansluta ditt konto.",
+        "data": {
+          "library_card": "Lånekortsnummer",
+          "pin": "PIN-kod"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Ogiltigt lånekortsnummer eller PIN-kod.",
+      "cannot_connect": "Kunde inte ansluta till bibliotekssystemet. Försök igen senare.",
+      "unknown": "Ett oväntat fel inträffade."
+    },
+    "abort": {
+      "already_configured": "Detta lånekort är redan konfigurerat."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_loans": {
+        "name": "Aktiva lån"
+      },
+      "overdue_loans": {
+        "name": "Försenade lån"
+      },
+      "next_due_date": {
+        "name": "Nästa förfallodatum"
+      }
+    }
+  }
+}
