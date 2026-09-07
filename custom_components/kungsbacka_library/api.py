@@ -84,7 +84,7 @@ class KungsbackaLibraryAPI:
         self._card_number = card_number
         self._pin = pin
 
-    async def _create_session(self) -> aiohttp.ClientSession:
+    def _create_session(self) -> aiohttp.ClientSession:
         """Create an aiohttp session with a cookie jar."""
         jar = aiohttp.CookieJar()
         return aiohttp.ClientSession(
@@ -244,7 +244,7 @@ class KungsbackaLibraryAPI:
 
     async def async_get_loans(self) -> list[Loan]:
         """Login and fetch active loans by scraping the overview page."""
-        async with await self._create_session() as session:
+        async with self._create_session() as session:
             await self._login(session)
 
             # Fetch the account overview page with the loans portlet
@@ -260,7 +260,7 @@ class KungsbackaLibraryAPI:
     async def async_validate_credentials(self) -> bool:
         """Validate credentials by attempting to log in."""
         try:
-            async with await self._create_session() as session:
+            async with self._create_session() as session:
                 await self._login(session)
                 return True
         except ArenaAuthError:
